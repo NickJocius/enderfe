@@ -1,4 +1,4 @@
-import React, {useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { useDispatch } from 'react-redux'
 import Properties from './components/Properties/Properties';
 import Leases from './components/Leases/Leases';

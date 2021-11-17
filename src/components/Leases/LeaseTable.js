@@ -1,11 +1,12 @@
 import React from 'react';
 import styled from 'styled-components';
 import { useSelector } from 'react-redux';
+import TableRow from './TableRow';
 
 const TableCont = styled.div`
     width: 100%;
     display: table;
-    min-height: 350px;
+    min-height: 250px;
     border: 1px solid grey;
 `
 const TableHeader = styled.div`
@@ -25,17 +26,10 @@ const TableBody = styled.div`
     min-height: 350px;
     min-width:100%;   
 `
-const TableRow = styled.div`
-    display: table-row;
-    min-width: 100%;
-    border-bottom: 1px solid grey;
-`
-const TableCell = styled.div`
-    display: table-cell;
-`
 
 const LeaseTable = () => {
     const leases = useSelector((state) => state.leases.leases);
+ 
     return (
         <TableCont>
             <TableHeader>
@@ -47,14 +41,8 @@ const LeaseTable = () => {
             </TableHeader>
             <TableBody>
                 {leases && (
-                    leases.map((l, i) => (
-                        <TableRow key={l.id}>
-                            <TableCell>{l.contacts[0]}</TableCell>
-                            <TableCell>{l.startDate}</TableCell>
-                            <TableCell>{l.inclusiveEndDate}</TableCell>
-                            <TableCell>{l.status}</TableCell>
-                            <TableCell>{l.contacts[0]}</TableCell>
-                        </TableRow>
+                    leases.map((lease, i) => (
+                        <TableRow key={lease.id} lease={lease}/>
                     ))
                 )}
             </TableBody>

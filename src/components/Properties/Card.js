@@ -66,7 +66,7 @@ const Card = ({ property }) => {
         });
     }
     const convertRent = () => {
-        let value = Number(property.baseRent.replace(/[^0-9\.-]+/g,""));;
+        let value = Number(property.baseRent.replace(/[^0-9\.-]+/g,""));
         return parseFloat(value);
         
     }
