@@ -65,6 +65,13 @@ const Card = ({ property }) => {
             dispatch(loadLeases(data))
         });
     }
+    const convertRent = () => {
+        let value = Number(property.baseRent.replace(/[^0-9\.-]+/g,""));;
+        return parseFloat(value);
+        
+    }
+    const perMonth = Math.round(((convertRent() / property.sqft) / 12) * 100)/100;
+    const perYear = Math.round((convertRent() / property.sqft)*100)/100;
 
     return (
         <StyledCard onClick={handleClick}>
@@ -78,8 +85,8 @@ const Card = ({ property }) => {
                 </DetailsOne>
                 <DetailsTwo>
                     <span>{property.sqft} sqft.</span>
-                    <span>{property.sqft} sqft.</span>
-                    <span>{property.sqft} sqft.</span>
+                    <span>${perMonth}/sqft.</span>
+                    <span>${perYear}/sqft.</span>
                 </DetailsTwo>
             </CardDetails>
         </StyledCard>
