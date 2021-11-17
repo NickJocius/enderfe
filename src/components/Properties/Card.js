@@ -1,6 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
 import { getPropertyByID } from '../../services/properties';
+import { loadLeases } from '../../features/leases/leasesSlice';
+import { useDispatch } from 'react-redux'
 
 const StyledCard = styled.div`
     width: 25rem;
@@ -53,9 +55,15 @@ const DetailsTwo = styled.div`
 `
 
 const Card = ({ property }) => {
-    
-    const handleClick = () => {
-        getPropertyByID(property.id).then((data) => console.log(data))
+    const dispatch = useDispatch();
+
+    const handleClick = (e) => {
+        e.preventDefault();
+        
+        getPropertyByID(property.id).then((data) => {
+            console.log(data)
+            dispatch(loadLeases(data))
+        });
     }
 
     return (
