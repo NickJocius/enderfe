@@ -1,7 +1,13 @@
+import React, { useState, useEffect } from 'react';
+import Properties from './components/Properties/Properties';
 import "./App.css";
 
 function App() {
-  return <div className="App"></div>;
+  return (
+    <main className="App">
+      <Properties/>
+    </main>
+  );
 }
 
 export default App;
