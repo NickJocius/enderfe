@@ -58,11 +58,12 @@ const DetailsOne = styled.div`
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    
+    padding: 1rem 0 .5rem 0;
 `
 const DetailsTwo = styled.div`
     display: flex;
     flex-direction: row;
+    flex-wrap: wrap;
     justify-content: space-evenly;
     align-items: center;
     font-size: .9rem;
@@ -99,8 +100,8 @@ const Card = ({ property }) => {
                 </DetailsOne>
                 <DetailsTwo>
                     <span>{property.sqft} sqft.</span>
-                    <span>${perMonth}/sqft.</span>
-                    <span>${perYear}/sqft.</span>
+                    <span>${perMonth}/sqft/mo</span>
+                    <span>${perYear}/sqft/yr</span>
                 </DetailsTwo>
             </CardDetails>
         </StyledCard>
