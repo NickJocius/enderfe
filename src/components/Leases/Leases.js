@@ -1,4 +1,5 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
 import styled from 'styled-components';
 import LeaseTable from './LeaseTable';
 
@@ -11,9 +12,10 @@ const StyledLeases = styled.section`
 `
 
 const Leases = () => {
+    const property = useSelector((state) => state.currentProp.currentProp);
     return (
         <StyledLeases>
-            <h2>Property Name Leases</h2>
+            <h2>{property ? property.name : `Property Name`} Leases</h2>
             <LeaseTable/>
         </StyledLeases>
     );

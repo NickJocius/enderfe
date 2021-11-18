@@ -5,9 +5,12 @@ const Row = styled.div`
     display: table-row;
     min-width: 100%;
     border-bottom: 1px solid grey;
+    
 `
 const TableCell = styled.div`
     display: table-cell;
+    font-size: .8rem;
+    padding: .5rem;
 `
 
 const TableRow = ({ lease }) => {
@@ -25,6 +28,11 @@ const TableRow = ({ lease }) => {
                 return (
                     <TableCell>{contacts[key].phone}</TableCell>
                 )
+            } else {
+                const first = Object.keys(contacts)[0];
+                return (
+                    <TableCell>{contacts[first].phone}</TableCell>
+                )
             }
         }
     }
@@ -36,8 +44,9 @@ const TableRow = ({ lease }) => {
                 tens.push(key);
             }
         }
+        const newTens = tens.join(", ");
         return (
-            <TableCell>{tens}</TableCell>
+            <TableCell>{newTens}</TableCell>
         )
     }
 

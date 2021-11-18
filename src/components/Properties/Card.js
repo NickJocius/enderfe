@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { getPropertyByID } from '../../services/properties';
+import { addCurrProperty } from '../../features/properties/currentPropSlice';
 import { loadLeases } from '../../features/leases/leasesSlice';
 import { useDispatch } from 'react-redux'
 
@@ -11,13 +12,24 @@ const StyledCard = styled.div`
     max-width: 100%;
     border: 1px solid black;
     border-radius: 15px;
-    margin: .8rem;
-    box-shadow: 1px 1px 10px rgba(0,0,0,.3);
+    margin: .6rem;
+    box-shadow: 3px 3px 20px rgba(0,0,0,.4);
     transition: all .2s ease-in-out;
+    font-size: .9rem;
     &:hover {
         cursor: pointer;
         transform: translateY(-2px);
-        border: 1.5px solid green;
+        border: 2px groove #3e68f1;
+    }
+    &:active {
+        transform: translateY(4px);
+        box-shadow: 1px 1px 10px rgba(0,0,0,.3);
+    }
+     @media (max-width: 791px){
+        flex-direction: column;
+        align-items: center;
+        font-size: 1rem;
+        margin: .8rem;
     }
 
 `
@@ -25,6 +37,8 @@ const CardHeader = styled.div`
     background:center url('https://source.unsplash.com/random/?condo');
     min-height: 50%;
     border-radius: 15px 15px 0px 0px;
+    font-weight: bold;
+    text-shadow: 1px 1px 1px black;
 `
 const CardDetails = styled.div`
     min-height: 40%;
@@ -51,7 +65,7 @@ const DetailsTwo = styled.div`
     flex-direction: row;
     justify-content: space-evenly;
     align-items: center;
-    
+    font-size: .9rem;
 `
 
 const Card = ({ property }) => {
@@ -59,10 +73,10 @@ const Card = ({ property }) => {
 
     const handleClick = (e) => {
         e.preventDefault();
-        
         getPropertyByID(property.id).then((data) => {
             console.log(data)
-            dispatch(loadLeases(data))
+            dispatch(loadLeases(data));
+            dispatch(addCurrProperty(property))
         });
     }
     const convertRent = () => {

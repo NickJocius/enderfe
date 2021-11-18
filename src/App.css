@@ -1,6 +1,28 @@
 .App {
   min-height: 100vh;
-  max-width: 80%;
+  max-width: 100%;
   margin: auto;
-  background-color: white;
+  background: rgb(123, 58, 180);
+  background: -moz-linear-gradient(
+    140deg,
+    rgba(123, 58, 180, 0.9248074229691877) 22%,
+    rgba(23, 53, 152, 0.9780287114845938) 59%,
+    rgba(0, 122, 55, 0.7959558823529411) 87%
+  );
+  background: -webkit-linear-gradient(
+    140deg,
+    rgba(123, 58, 180, 0.9248074229691877) 22%,
+    rgba(23, 53, 152, 0.9780287114845938) 59%,
+    rgba(0, 122, 55, 0.7959558823529411) 87%
+  );
+  background: linear-gradient(
+    140deg,
+    rgba(123, 58, 180, 0.9248074229691877) 22%,
+    rgba(23, 53, 152, 0.9780287114845938) 59%,
+    rgba(0, 122, 55, 0.7959558823529411) 87%
+  );
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#7b3ab4",endColorstr="#007a37",GradientType=1);
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
